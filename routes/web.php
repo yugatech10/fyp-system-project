@@ -32,7 +32,6 @@ Route::group(['middleware' => ['isLoggedIn']], function () {
     Route::get('/project-detail/{id}', [ProjectsController::class,'edit', 'id' => 'id'])->name('project-detail');
     Route::post('/project-update', [ProjectsController::class,'update'])->name('project-update');
     Route::get('/project-show/{id}', [ProjectsController::class,'show', 'id' => 'id'])->name('project-show');
-    //Route::resource('project',ProjectsController::class);
 });
 Route::get('/login-student', [StudentsController::class,'login'])->name('login-student');
 Route::get('/register-student', [StudentsController::class,'create'])->name('register-student');;
