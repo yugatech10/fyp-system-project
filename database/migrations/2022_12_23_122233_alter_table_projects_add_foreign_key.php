@@ -32,6 +32,7 @@ class AlterTableProjectsAddForeignKey extends Migration
             $table->foreignId('supervisorID');
             $table->foreignId('examiner1ID')->nullable();
             $table->foreignId('examiner2ID')->nullable();
+            $table->foreignId('stdID')->nullable();
         });
     }
 }

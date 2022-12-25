@@ -19,7 +19,7 @@ class CreateStaffTable extends Migration
             $table->string('staffID')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
