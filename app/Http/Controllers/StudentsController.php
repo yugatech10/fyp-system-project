@@ -37,7 +37,7 @@ class StudentsController extends Controller
             if(Hash::check($request->password, $student->password)){
                 $request->session()->put('loginID', $student->id);
                 $request->session()->put('type', "Student");
-                return redirect('student-dashboard');
+                return redirect('student-detail');
             }
             else{
                 return back()->with('fail','Password not matched');

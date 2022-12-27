@@ -30,16 +30,22 @@ class ProjectsController extends Controller
     public function create()
     {
         $staffs = Staff::all();
-        $taken = Projects::where('stdID', '!=', NULL)->with('students')->get();
-        //$students = Students::where('projecID', '=', NULL)->get();
-        //$project = Projects::where('stdID', '!=', NULL)->get();
-        foreach($taken as $projects){
-            $students[] = $projects->students->id;
-            //$students[] = Students::where('id', '=', $projects->stdID)->pluck('id')->first();
-            //array_push($students,$temp);
-            //$students = array_add($students, $temp);
+        $check = Projects::all();
+        if(count($check)==0){
+            $student = Students::all();
         }
-        $student = Students::whereNotIn('id', $students)->get();
+        else {
+            $taken = Projects::where('stdID', '!=', NULL)->with('students')->get();
+            //$students = Students::where('projecID', '=', NULL)->get();
+            //$project = Projects::where('stdID', '!=', NULL)->get();
+            foreach ($taken as $projects) {
+                $students[] = $projects->students->id;
+                //$students[] = Students::where('id', '=', $projects->stdID)->pluck('id')->first();
+                //array_push($students,$temp);
+                //$students = array_add($students, $temp);
+            }
+            $student = Students::whereNotIn('id', $students)->get();
+        }
         //$encodedSku = json_encode($taken);
         //$encodedSku = json_encode($student);
         //print_r($encodedSku);

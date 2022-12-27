@@ -7,6 +7,12 @@
             <div class="card">
                 <div class="card-header">Projects</div>
                 <div class="card-body">
+                    @if($project==NULL)
+                        <div class="row mb-3">
+                            <h3>No Project Added</h3>
+                        </div>
+                    @endif
+                    @if($project)
                         <div class="row mb-3">
                             <label for="title" class="col-md-4 col-form-label text-md-end">Project Title</label>
                             <div class="col-md-6">
@@ -114,6 +120,7 @@
                                 @endif
                             </div>
                         </div>
+                        @endif
                 </div>
             </div>
         </div>

@@ -83,7 +83,7 @@
                                             <td>{{$students1[$j]->studentID}}</td>
                                             <td>{{$students1[$j]->name}}</td>
                                             <td>{{$project1[$j]->title}}</td>
-                                            <td><a href="{{ route('project-show')}}" class="btn btn-primary">Show</a></td>
+                                            <td><a href="{{ route('project-show', ['id' => $project1[$j]->id])}}" class="btn btn-primary">Show</a></td>
                                            {{-- <td><a href="{{ route('project-show', ['id' => $project1[$j]->id]) }}" class="btn btn-primary">Show</a></td>--}}
                                         </tr>
                                     @endfor
