@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="cardStaff">
                     <div class="card-header">Supervisor List</div>
                     <div class="card-body">
                         <form method="POST">

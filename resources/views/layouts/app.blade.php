@@ -22,37 +22,25 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
             <a class="navbar-brand" href="{{ url('/') }}">
                 @if(Session::has('type'))
                     @if(Session::get('type')=="Staff")
                         <?php $type = "Staff";?>
-                        <h1>Staff
+                        Staff
                     @endif
                     @if(Session::get('type')=="Coordinator")
                             <?php $type = "Coordinator";?>
-                        <h1>Coordinator
+                        Coordinator
                     @endif
                     @if(Session::get('type')=="Student")
                       <?php $type = "Student";?>
-                        <h1>Student
+                        Student
                     @endif
 
                 @endif
-                 {{ config('app.name', 'Laravel') }} </h1>
+                 {{ config('app.name', 'Laravel') }}
             </a>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto">
-                    @if(Session::has('loginID'))
-                        <li class="nav-item">
-                            <a href="{{ route('logout') }}" class="nav-link">Logout</a>
-                        </li>
-                    @endif
-                </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
@@ -60,10 +48,12 @@
                     @if(Session::has('type'))
                         @if(Session::get('type')=="Student")
                         <li class="nav-item">
-                            <a href="{{ route('student-detail') }}" class="nav-link">Your Detail</a>
+                            <a href="{{ route('student-detail') }}" class="nav-link
+                            {{ (request()->is('student-detail')) ? 'active' : '' }}">Your Detail</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('student-dashboard') }}">Project</a>
+                            <a href="{{ route('student-dashboard') }}" class="nav-link
+                            {{ (request()->is('student-dashboard')) ? 'active' : '' }}">Project</a>
                         </li>
                         @endif
                         @if(Session::get('type')=="Staff")
@@ -93,40 +83,12 @@
                             <a class="nav-link" href="{{ route('login-staff') }}">Staff</a>
                         </li>
                     @endif
-                    @guest
-                        @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @endif
-
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                    @if(Session::has('loginID'))
+                        <li class="nav-item">
+                            <a href="{{ route('logout') }}" class="nav-link">Logout</a>
                         </li>
-                    @endguest
+                    @endif
                 </ul>
-            </div>
-        </div>
     </nav>
 
     <main class="py-4">

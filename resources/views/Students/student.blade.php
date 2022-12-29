@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card{{$type}}">
                     <div class="card-header">Your Detail</div>
                     <div class="card-body">
                         <form method="POST">

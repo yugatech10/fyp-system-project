@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
-            <div class="card">
-                <div class="card">
+            <div class="cardStaff">
+                <div class="cardStaff">
                         <div class="card-header">
                             <div class="input-group mb-2">
                                 <h4>Examiner 1 List</h4>
@@ -49,7 +49,7 @@
                         </div>
                 </div>
 
-                <div class="card mt-5">
+                <div class="cardStaff mt-5">
                         <div class="card-header">
                             <div class="input-group mb-2">
                                 <h4>Examiner 2 List</h4>

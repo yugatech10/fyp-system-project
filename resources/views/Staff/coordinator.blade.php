@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="cardCoordinator">
                     <div class="card-header">Add Projects</div>
                     <div class="card-body">
                             <form method="POST" action="{{ route('project-create') }}">
